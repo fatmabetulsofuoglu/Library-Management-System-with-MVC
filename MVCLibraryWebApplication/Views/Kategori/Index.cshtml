@@ -1,0 +1,33 @@
+﻿@using MVCLibraryWebApplication.Models.Entity
+@model List<TBL_KATEGORI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Kategoriler</h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>AD</th>
+        <th>GÜNCELLE</th>
+        <th>SİL</th>
+    </tr>
+
+    @foreach (var kategori in Model)
+    {
+        <tr>
+            <td>@kategori.ID </td>
+            <td>@kategori.AD</td>
+            <td><a href="/Kategori/KategoriGetir/@kategori.ID" class="btn btn-success">Güncelle</a></td>
+            <td>@Html.ActionLink("Sil", "KategoriSil", new { id = kategori.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })</td>
+        </tr>
+    }
+</table>
+
+
+<a href="/Kategori/KategoriEkle" class="btn btn-primary">Yeni Kategori Ekle</a>

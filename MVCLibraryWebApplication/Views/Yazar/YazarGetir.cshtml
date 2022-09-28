@@ -1,0 +1,31 @@
+﻿@model MVCLibraryWebApplication.Models.Entity.TBL_YAZAR
+
+@{
+    ViewBag.Title = "YazarGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yazar Güncelle</h2>
+
+
+@using (Html.BeginForm("YazarGuncelle", "Yazar", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.AD)
+        @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.SOYAD)
+        @Html.TextBoxFor(k => k.SOYAD, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.DETAY)
+        @Html.TextBoxFor(k => k.DETAY, new { @class = "form-control" })
+
+    </div>
+
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}

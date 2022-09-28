@@ -1,0 +1,29 @@
+﻿@model MVCLibraryWebApplication.Models.Entity.TBL_YAZAR
+
+@{
+    ViewBag.Title = "YazarEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yazar Ekle</h2>
+
+<br />
+
+<form class="form form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Yazar Adı</label>
+        <input type="text" class="form-control" name="AD" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Yazar Soyadı</label>
+        <input type="text" class="form-control" name="SOYAD" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Hakkında</label>
+        <input type="text" class="form-control" name="DETAY" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn_YazarEkle">Yeni Yazar Ekle</button>
+    </div>
+</form>

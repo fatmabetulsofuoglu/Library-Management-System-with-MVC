@@ -1,0 +1,27 @@
+﻿@model MVCLibraryWebApplication.Models.Entity.TBL_PERSONEL
+
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Görevli Ekle</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Adı</label>
+        @Html.TextBoxFor(x=>x.AD, new {@class="form-control"})
+        @Html.ValidationMessageFor(x => x.AD, "",new { @style="color:red"})
+    </div>
+    <div style="margin-top:15px">
+        <label>Soyadı</label>
+        @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SOYAD, "", new { @style = "color:red" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn_GorevliEkle">Yeni Görevli Ekle</button>
+
+    </div>
+</form>

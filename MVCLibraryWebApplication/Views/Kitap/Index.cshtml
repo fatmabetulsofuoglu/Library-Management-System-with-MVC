@@ -1,0 +1,54 @@
+﻿@using MVCLibraryWebApplication.Models.Entity
+@model List<TBL_KITAP>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kitaplar</h2>
+<br />
+
+@using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
+{
+    <div style="margin-bottom:15px;">
+        <b>Kitap ara:</b> @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+}
+
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>AD</th>
+        <th>KATEGORİ</th>
+        <th>YAZAR</th>
+        <th>BASIM YILI</th>
+        <th>YAYIN EVİ</th>
+        <th>SAYFA SAYISI</th>
+        <th>DURUM</th>
+        <th>GÜNCELLE</th>
+        <th>SİL</th>
+    </tr>
+
+    @foreach (var kitap in Model)
+    {
+        <tr>
+            <td>@kitap.ID</td>
+            <td>@kitap.AD</td>
+            <td>@kitap.TBL_KATEGORI.AD</td>
+            <td>@kitap.TBL_YAZAR.AD @kitap.TBL_YAZAR.SOYAD</td>
+            <td>@kitap.BASIMYILI</td>
+            <td>@kitap.TBL_YAYINEVI.AD</td>
+            <td>@kitap.SAYFASAYISI</td>
+            <td>@kitap.DURUM</td>
+            <td><a href="/Kitap/KitapGetir/@kitap.ID" class="btn btn-success">Güncelle</a></td>
+            <td>@Html.ActionLink("Sil", "KitapSil", new { id = kitap.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?')" })</td>
+        </tr>
+    }
+</table>
+
+<a href="/Kitap/KitapEkle/" class="btn btn-primary">Yeni Kitap Ekle</a>

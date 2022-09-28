@@ -1,0 +1,51 @@
+﻿@model MVCLibraryWebApplication.Models.Entity.TBL_UYELER
+
+@{
+    ViewBag.Title = "UyeGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Üye Bilgilerini Güncelle</h2>
+<br />
+
+@using (Html.BeginForm("UyeGuncelle", "Uye", FormMethod.Post))
+{
+    <div class="form-group">
+        <div style="margin-top:15px">
+            <label>ID</label>
+            @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>AD</label>
+            @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>SOYAD</label>
+            @Html.TextBoxFor(k => k.SOYAD, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>MAIL</label>
+            @Html.TextBoxFor(k => k.MAIL, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>KULLANICI ADI</label>
+            @Html.TextBoxFor(k => k.KULLANICIADI, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>ŞİFRE</label>
+            @Html.TextBoxFor(k => k.SIFRE, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>TELEFON</label>
+            @Html.TextBoxFor(k => k.TELEFON, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>OKUL</label>
+            @Html.TextBoxFor(k => k.OKUL, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}

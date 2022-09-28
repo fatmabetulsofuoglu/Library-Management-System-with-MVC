@@ -1,0 +1,44 @@
+﻿@using MVCLibraryWebApplication.Models.Entity
+@model List<TBL_HAREKET>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>İşlemler</h2>
+
+<br />
+@using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
+{
+    <div style="margin-bottom:15px;">
+        <b>Kitap ara:</b> @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </div>
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>İŞLEM ID</th>
+        <th>KİTAP ADI</th>
+        <th>ÜYE</th>
+        <th>GÖREVLİ</th>
+        <th>ALIŞ TARİHİ</th>
+        <th>İADE EDİLMESİ GEREKEN TARİH</th>
+        <th>VERİŞ TARİHİ</th>
+    </tr>
+
+    @foreach (var kitap in Model)
+    {
+        <tr>
+            <td>@kitap.ID</td>
+            <td>@kitap.TBL_KITAP.AD</td>
+            <td>@kitap.TBL_UYELER.AD @kitap.TBL_UYELER.SOYAD</td>
+            <td>@kitap.TBL_PERSONEL.AD @kitap.TBL_PERSONEL.SOYAD</td>
+            <td>@Convert.ToDateTime(kitap.ALISTARIH).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(kitap.UYEIADETARIH).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(kitap.VERISTARIH).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>
+

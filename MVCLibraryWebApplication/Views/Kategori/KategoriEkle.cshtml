@@ -1,0 +1,23 @@
+﻿@model MVCLibraryWebApplication.Models.Entity.TBL_KATEGORI
+
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Kategori Ekle</h2>
+<br />
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <label>Kategori Adı</label>
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AD, "", new { @style = "color:red" })
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn_KategoriEkle">Yeni Kategori Ekle</button>
+
+    </div>
+</form>
