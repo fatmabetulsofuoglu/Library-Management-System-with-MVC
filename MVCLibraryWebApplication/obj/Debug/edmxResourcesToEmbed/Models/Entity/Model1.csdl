@@ -64,6 +64,7 @@
     <NavigationProperty Name="TBL_KATEGORI" Relationship="Self.FK_TBL_KITAP_TBL_KATEGORI" FromRole="TBL_KITAP" ToRole="TBL_KATEGORI" />
     <NavigationProperty Name="TBL_YAYINEVI" Relationship="Self.FK_TBL_KITAP_TBL_YAYINEVI" FromRole="TBL_KITAP" ToRole="TBL_YAYINEVI" />
     <NavigationProperty Name="TBL_YAZAR" Relationship="Self.FK_TBL_KITAP_TBL_YAZAR" FromRole="TBL_KITAP" ToRole="TBL_YAZAR" />
+    <Property Name="RESIM" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="TBL_PERSONEL">
     <Key>
@@ -246,5 +247,24 @@
       <End Role="TBL_YAZAR" EntitySet="TBL_YAZAR" />
       <End Role="TBL_KITAP" EntitySet="TBL_KITAP" />
     </AssociationSet>
+    <EntitySet Name="TBL_HAKKIMIZDA" EntityType="DBKUTUPHANEModel.TBL_HAKKIMIZDA" />
+    <EntitySet Name="TBL_ILETISIM" EntityType="DBKUTUPHANEModel.TBL_ILETISIM" />
   </EntityContainer>
+  <EntityType Name="TBL_HAKKIMIZDA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBL_ILETISIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KONU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MESAJ" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

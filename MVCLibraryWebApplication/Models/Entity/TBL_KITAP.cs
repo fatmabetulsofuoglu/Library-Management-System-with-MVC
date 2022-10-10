@@ -28,6 +28,7 @@ namespace MVCLibraryWebApplication.Models.Entity
         public Nullable<int> YAYINEVI { get; set; }
         public string SAYFASAYISI { get; set; }
         public bool DURUM { get; set; }
+        public string RESIM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_HAREKET> TBL_HAREKET { get; set; }

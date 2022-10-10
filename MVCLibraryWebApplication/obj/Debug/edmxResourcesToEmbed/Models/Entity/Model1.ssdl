@@ -21,6 +21,13 @@
     <Property Name="CEZA" Type="int" />
     <Property Name="HAREKET" Type="int" />
   </EntityType>
+  <EntityType Name="TBL_HAKKIMIZDA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ACIKLAMA" Type="varchar(max)" />
+  </EntityType>
   <EntityType Name="TBL_HAREKET">
     <Key>
       <PropertyRef Name="ID" />
@@ -33,6 +40,16 @@
     <Property Name="VERISTARIH" Type="smalldatetime" />
     <Property Name="UYEIADETARIH" Type="smalldatetime" />
     <Property Name="ISLEMDURUM" Type="bit" />
+  </EntityType>
+  <EntityType Name="TBL_ILETISIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="50" />
+    <Property Name="MAIL" Type="varchar" MaxLength="50" />
+    <Property Name="KONU" Type="varchar" MaxLength="50" />
+    <Property Name="MESAJ" Type="varchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="TBL_KATEGORI">
     <Key>
@@ -53,6 +70,7 @@
     <Property Name="YAYINEVI" Type="int" />
     <Property Name="SAYFASAYISI" Type="varchar" MaxLength="5" />
     <Property Name="DURUM" Type="bit" Nullable="false" />
+    <Property Name="RESIM" Type="varchar" MaxLength="300" />
   </EntityType>
   <EntityType Name="TBL_PERSONEL">
     <Key>
@@ -152,46 +170,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TBL_KITAP_TBL_KATEGORI">
-    <End Role="TBL_KATEGORI" Type="Self.TBL_KATEGORI" Multiplicity="0..1" />
-    <End Role="TBL_KITAP" Type="Self.TBL_KITAP" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_KATEGORI">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="TBL_KITAP">
-        <PropertyRef Name="KATEGORI" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_KITAP_TBL_YAYINEVI">
-    <End Role="TBL_YAYINEVI" Type="Self.TBL_YAYINEVI" Multiplicity="0..1" />
-    <End Role="TBL_KITAP" Type="Self.TBL_KITAP" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_YAYINEVI">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="TBL_KITAP">
-        <PropertyRef Name="YAYINEVI" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TBL_KITAP_TBL_YAZAR">
-    <End Role="TBL_YAZAR" Type="Self.TBL_YAZAR" Multiplicity="0..1" />
-    <End Role="TBL_KITAP" Type="Self.TBL_KITAP" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TBL_YAZAR">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="TBL_KITAP">
-        <PropertyRef Name="YAZAR" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="DBKUTUPHANEModelStoreContainer">
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TBL_CEZA" EntityType="Self.TBL_CEZA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_HAKKIMIZDA" EntityType="Self.TBL_HAKKIMIZDA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TBL_HAREKET" EntityType="Self.TBL_HAREKET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_ILETISIM" EntityType="Self.TBL_ILETISIM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TBL_KATEGORI" EntityType="Self.TBL_KATEGORI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TBL_KITAP" EntityType="Self.TBL_KITAP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TBL_PERSONEL" EntityType="Self.TBL_PERSONEL" Schema="dbo" store:Type="Tables" />
@@ -217,18 +201,6 @@
     <AssociationSet Name="FK_TBL_HAREKET_TBL_UYELER" Association="Self.FK_TBL_HAREKET_TBL_UYELER">
       <End Role="TBL_UYELER" EntitySet="TBL_UYELER" />
       <End Role="TBL_HAREKET" EntitySet="TBL_HAREKET" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_KITAP_TBL_KATEGORI" Association="Self.FK_TBL_KITAP_TBL_KATEGORI">
-      <End Role="TBL_KATEGORI" EntitySet="TBL_KATEGORI" />
-      <End Role="TBL_KITAP" EntitySet="TBL_KITAP" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_KITAP_TBL_YAYINEVI" Association="Self.FK_TBL_KITAP_TBL_YAYINEVI">
-      <End Role="TBL_YAYINEVI" EntitySet="TBL_YAYINEVI" />
-      <End Role="TBL_KITAP" EntitySet="TBL_KITAP" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TBL_KITAP_TBL_YAZAR" Association="Self.FK_TBL_KITAP_TBL_YAZAR">
-      <End Role="TBL_YAZAR" EntitySet="TBL_YAZAR" />
-      <End Role="TBL_KITAP" EntitySet="TBL_KITAP" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

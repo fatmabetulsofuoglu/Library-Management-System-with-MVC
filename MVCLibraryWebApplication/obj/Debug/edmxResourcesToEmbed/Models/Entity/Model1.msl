@@ -49,6 +49,7 @@
     <EntitySetMapping Name="TBL_KITAP">
       <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBL_KITAP">
         <MappingFragment StoreEntitySet="TBL_KITAP">
+          <ScalarProperty Name="RESIM" ColumnName="RESIM" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AD" ColumnName="AD" />
           <ScalarProperty Name="KATEGORI" ColumnName="KATEGORI" />
@@ -99,6 +100,25 @@
           <ScalarProperty Name="AD" ColumnName="AD" />
           <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
           <ScalarProperty Name="DETAY" ColumnName="DETAY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_HAKKIMIZDA">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBL_HAKKIMIZDA">
+        <MappingFragment StoreEntitySet="TBL_HAKKIMIZDA">
+          <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ILETISIM">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TBL_ILETISIM">
+        <MappingFragment StoreEntitySet="TBL_ILETISIM">
+          <ScalarProperty Name="MESAJ" ColumnName="MESAJ" />
+          <ScalarProperty Name="KONU" ColumnName="KONU" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
