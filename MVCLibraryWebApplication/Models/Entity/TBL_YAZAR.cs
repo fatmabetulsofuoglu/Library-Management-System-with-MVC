@@ -11,7 +11,8 @@ namespace MVCLibraryWebApplication.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TBL_YAZAR
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,10 @@ namespace MVCLibraryWebApplication.Models.Entity
         }
     
         public int ID { get; set; }
+        [Required(ErrorMessage ="Yazar adı boş geçilemez")]
         public string AD { get; set; }
+
+        [Required(ErrorMessage = "Yazar soyadı boş geçilemez")]
         public string SOYAD { get; set; }
         public string DETAY { get; set; }
     
